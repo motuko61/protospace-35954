@@ -2,16 +2,15 @@
   <%= link_to image_tag(prototype.image, class: 'card__image'), prototype_path(prototype) %>
   <div class="card__body">
     <div class="card__title">
-    <%= prototype.title %>
+    <%= link_to prototype.title, prototype_path(prototype) %>
       
     </div>
     <p class="card__summary">
       <%= prototype.catch_copy %>
     </p>
     <div class="clacard__user" >
-    <% if user_signed_in? %>
-      <a>by</a><%= link_to prototype.user.name, "/users/#{current_user.id}" %>
-    <% end %>  
+
+      <a>by</a><%= link_to prototype.user.name, user_path(prototype.user) %>
     </div>  
   </div>
 </div>
